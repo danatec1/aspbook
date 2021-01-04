@@ -1,0 +1,39 @@
+<SCRIPT LANGUAGE="vbscript" RUNAT="server">
+Sub Application_OnStart
+    Set objFSO = CreateObject("Scripting.FileSystemObject")
+    strPath = Server.MapPath("/ch08")
+    strPFile = strPath & "/" & "counter.dat"
+' 읽기 위해서 파일을 연다.
+    Set objTS = objFSO.OpenTextFile(strPFile) 
+    Counter = objTS.ReadLine
+    Application("appCounter") = Counter
+    objTS.Close
+End Sub
+Sub Application_OnEnd
+    Set objFSO = CreateObject("Scripting.FileSystemObject")
+    strPath = Server.MapPath("/ch08")
+    strPFile = strPath & "/" & "counter.dat"
+' 쓰기 위해서 파일을 연다.
+    Set objTS = objFSO.OpenTextFile(strPFile, 2) 
+    objTS.WriteLine(Application("appCounter"))
+    objTS.Close
+End Sub
+Sub Session_OnStart
+' 방문자 카운터 값을 하나 증가시킨다.
+    Application.Lock
+    Application("appCounter") = Application("appCounter") + 1
+    Application.Unlock
+' counter 값이 5의 배수이면 파일에 기억한다.
+' 이는 중간 중간에 값을 기록하면 오차를 줄일 수 있기 때문이다.
+    If (Application("appCounter") mod 5) = 0 Then
+        Set objFSO = CreateObject("Scripting.FileSystemObject")
+        strPath = Server.MapPath("/ch08")
+        strPFile = strPath & "/" & "counter.dat"
+        Set objTS = objFSO.OpenTextFile(strPFile, 2) 
+        objTS.WriteLine(Application("appCounter"))
+        objTS.Close
+    End If
+End Sub
+Sub Session_OnEnd
+End Sub
+</SCRIPT>

@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<TITLE> Email Send Form </TITLE>
+<script LANGUAGE="Javascript">
+<!--
+function ChkField() {
+    var vEMTo      = document.emsform.EMTo.value;
+    var vEMSubject = document.emsform.EMSubject.value;
+    var vEMBody    = document.emsform.EMBody.value;
+			
+    if (vEMTo == "") {
+        alert("수신자 주소를 입력하세요.\n");
+	document.emsform.EMTo.focus();
+	return false;
+	}
+    if (vEMSubject == "") {
+	alert("'제목을 입력하세요.\n");
+	document.emsform.EMSubject.focus();
+	return false;
+	}
+    if (vEMBody == "") {
+	alert("내용을 입력하세요.\n");
+	document.emsform.EMBody.focus();
+	return false;
+	}
+return true;
+} // end function
+//    -->
+</script>
+</HEAD>
+<BODY>
+메일보내기
+<TABLE>
+<FORM METHOD="post" ACTION="b0602.asp" NAME="emsform" 
+    OnSubmit="return ChkField()">
+<TR>
+    <TD> 수신자 </TD>
+    <TD> <INPUT TYPE="text" NAME="EMTo" SIZE=30> </TD>
+</TR> <TR>
+    <TD> 송신자 </TD>
+    <TD> <INPUT TYPE="text" NAME="EMFrom" SIZE=30> </TD>
+</TR> <TR>
+    <TD> 제목 </TD>
+    <TD> <INPUT TYPE="text" NAME="EMSubject" SIZE=55> </TD>
+</TR> <TR>
+    <TD> 내용 </TD>
+    <TD> <TEXTAREA COLS="55" ROWS="5" NAME="EMBody"></textarea> </TD>
+</TR> <TR>       
+    <TD COLSPAN=2 ALIGN="center">
+	<INPUT TYPE="submit" VALUE="메일발송">
+	<INPUT TYPE="reset"  VALUE="재작성">
+    </TD>
+</TR>
+</FORM>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE> Email Send Form </TITLE>
+</HEAD>
+<BODY>
+첨부 파일이 있는 메일보내기
+<TABLE>
+<FORM METHOD="post" ACTION="b0606.asp">
+<TR>
+    <TD> 수신자 </TD>
+    <TD> <INPUT TYPE="text" NAME="EMTo" SIZE=30> </TD>
+</TR> <TR>
+    <TD> 송신자 </TD>
+    <TD> <INPUT TYPE="text" NAME="EMFrom" SIZE=30> </TD>
+</TR> <TR>
+    <TD> 제목 </TD>
+    <TD> <INPUT TYPE="text" NAME="EMSubject" SIZE=55> </TD>
+</TR> <TR>
+    <TD> 내용 </TD>
+    <TD> <TEXTAREA COLS="55" ROWS="5" NAME="EMBody"></textarea> </TD>
+</TR> <TR>
+    <TD> 첨부 </TD>
+    <TD> <INPUT TYPE="text" NAME="EMFPath" SIZE=30> </TD>
+</TR> <TR>       
+    <TD COLSPAN=2 ALIGN="center">
+	<INPUT TYPE="submit" VALUE="메일발송">
+	<INPUT TYPE="reset"  VALUE="재작성">
+    </TD>
+</TR>
+</FORM>
+</TABLE>
+</BODY>
+</HTML>

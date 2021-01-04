@@ -1,0 +1,18 @@
+redirect AR05.asp
+border 2
+width  300
+height 50
+*
+mbc.jpg
+http://www.mbc.co.kr/
+즐거운 MBC!!!
+20
+hot.jpg
+http://www.hot.kr.net/
+저자의 홈페이지
+50
+netian.jpg
+-
+무료 이메일 네띠앙!!
+30
+

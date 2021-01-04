@@ -1,0 +1,3 @@
+NL03.asp	리눅스		1999 10-08 update
+NL04.asp	Mac OS		Macintosh
+NL05.asp	윈도우 		Microsoft

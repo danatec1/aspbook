@@ -1,0 +1,30 @@
+<SCRIPT LANGUAGE="vbscript" RUNAT="server">
+Sub Application_OnStart
+    Application("SCID") = 1   
+End Sub
+Sub Application_OnEnd
+End Sub
+' 
+Sub Session_OnStart
+' 고객의 Session Timeout 시간을 60 분으로 설정
+    Session.Timeout = 60
+' 고객마다 하나의 Connection 객체를 사용한다. 
+    ConnString = "DSN=aspbook;UID=sa;PWD=;"
+    Set objConn = Server.CreateObject("ADODB.Connection")
+    objConn.Open ConnString
+    Set Session("objConn") = objConn
+End Sub
+Sub Session_OnEnd
+' 고객의 Shopping Cart를 확인한다.
+    strSCID = Session("sesSCID")
+' Shopping Cart를 가지고 있으면 상품들을 회수한다.
+    If (strSCID <> "") Then
+        intSCID = CInt(strSCID)
+        sqlQuery = "DELETE FROM SCart WHERE SCID=" & intSCID
+        Session("objConn").Execute(sqlQuery)
+    End If
+' 고객이 사용한 Connection 객체를 반납한다.
+    Session("objConn").Close
+    Set Session("objConn") = Nothing
+End Sub
+</SCRIPT>

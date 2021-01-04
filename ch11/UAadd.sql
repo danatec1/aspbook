@@ -1,0 +1,6 @@
+INSERT INTO Account VALUES ('aaa', 'aaa','aaa@shjc.ac.kr')
+INSERT INTO Account VALUES ('bbb', 'bbb','bbb@shjc.ac.kr')
+INSERT INTO Account VALUES ('ccc', 'ccc','ccc@shjc.ac.kr')
+INSERT INTO Account VALUES ('ddd', 'ddd','ddd@shjc.ac.kr')
+INSERT INTO Account VALUES ('eee', 'eee','eee@shjc.ac.kr')
+INSERT INTO Account VALUES ('fff', 'fff','fff@shjc.ac.kr')
